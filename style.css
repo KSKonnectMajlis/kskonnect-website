@@ -100,8 +100,8 @@ textarea.ctl{height:calc(87 * var(--u));padding-top:calc(13 * var(--u));resize:n
 /* ---------- PHONES: stack the poster layout ---------- */
 @media (max-width:640px){
   :root{--u:calc(100vw / 400)}
-  .h-hero{height:auto;padding:calc(28 * var(--u)) calc(16 * var(--u)) calc(300 * var(--u))}
-  .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(300 * var(--u));background-size:auto calc(300 * var(--u));background-position:78% 100%}
+  .h-hero{height:auto;padding:calc(28 * var(--u)) calc(16 * var(--u)) calc(340 * var(--u))}
+  .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(340 * var(--u));background-size:auto calc(340 * var(--u));background-position:100% 100%}
   .logo,.h-hero .copy,.h-hero .btn,.h-hero .bar{position:relative;left:0;top:0}
   .logo{font-size:calc(64 * var(--u))}
   .h-hero .bar{margin:calc(16 * var(--u)) 0 calc(20 * var(--u))}
@@ -125,9 +125,9 @@ textarea.ctl{height:calc(87 * var(--u));padding-top:calc(13 * var(--u));resize:n
   .h-majlis .copy{white-space:normal}
   .h-majlis .copy br{display:none}
   .h-majlis .btn{margin-top:calc(24 * var(--u))}
-  .m-hero{height:auto;padding:calc(36 * var(--u)) calc(16 * var(--u)) calc(300 * var(--u))}
-  .m-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(300 * var(--u));background-size:auto calc(300 * var(--u));background-position:70% 100%}
-  .m-hero .kicker,.m-hero .display,.m-hero .bar,.m-hero .copy{font-family:var(--body);position:relative;left:0;top:0}
+  .m-hero{height:auto;padding:calc(36 * var(--u)) calc(16 * var(--u)) calc(280 * var(--u))}
+  .m-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(280 * var(--u));background-size:auto calc(280 * var(--u));background-position:100% 100%}
+  .m-hero .kicker,.m-hero .display,.m-hero .bar,.m-hero .copy{position:relative;left:0;top:0}
   .m-hero .bar{margin:calc(12 * var(--u)) 0 calc(16 * var(--u))}
   .m-hero .copy{font-family:var(--body);white-space:normal}
   .m-hero .copy br{display:none}
