@@ -1,0 +1,141 @@
+/* KS Konnect. Layout is drawn on the 853px mockup grid: "Nu" = N mockup pixels, scaled to the viewport. */
+:root{
+  --u: calc(min(100vw, 1280px) / 853);
+  --gold:#e6b94f; --gold-1:#c9952f; --gold-2:#f3d27a;
+  --ink:#030303; --white:#fff;
+  --serif:'Noto Serif Display', 'Playfair Display', Georgia, serif;
+  --body:'Nunito Sans', 'Avenir Next', Avenir, sans-serif;
+  --sans:'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink)}
+body{background:var(--ink);color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.bar{display:block;height:6u;width:57u;background:linear-gradient(90deg,var(--gold-1),var(--gold-2) 45%,var(--gold) 70%,var(--gold-1))}
+.btn{position:absolute;display:flex;align-items:center;justify-content:center;border:2u solid var(--gold);background:#050505;color:#fff;font-family:var(--sans);font-weight:400;letter-spacing:.11em;text-transform:uppercase;transition:background .25s,color .25s}
+.btn:hover{background:var(--gold);color:#000}
+.wrap{position:relative;width:853u;margin:0 auto}
+.full{position:relative;width:100%}
+.eyebrow{position:absolute;font-family:var(--sans);font-weight:400;text-transform:uppercase;white-space:nowrap}
+.display{position:absolute;font-family:var(--serif);font-weight:800;font-stretch:83.5%;line-height:1;white-space:nowrap}
+.copy{position:absolute;font-family:var(--sans);white-space:nowrap}
+
+/* ---------- HOME ---------- */
+.h-hero{height:556u;background:#141310 url(img/home-hero-edge.png) 0 0/100% 553u no-repeat}
+.h-hero .photo{position:absolute;inset:0;width:853u;left:50%;transform:translateX(-50%);height:556u;background:url(img/home-hero.jpg) 0 0/853u 553u no-repeat}
+.logo{left:46u;top:77u;font-size:77.5u;letter-spacing:-2.15u}
+.h-hero .bar{position:absolute;left:49u;top:163u}
+.h-hero .copy{left:52u;top:194u;font-size:14.9u;line-height:21.75u;letter-spacing:.95u;font-weight:400}
+.h-hero .btn{left:51u;top:323u;width:225u;height:43u;font-size:15.5u;letter-spacing:1.9u}
+
+.pillars{height:156u;background:#020202;border-top:1u solid #373737;border-bottom:1u solid #333}
+.pillars .wrap{display:grid;grid-template-columns:276u 300u 277u;height:100%}
+.pillar{position:relative;text-align:center}
+.pillar + .pillar::before{content:"";position:absolute;left:0;top:23u;width:2u;height:113u;background:linear-gradient(var(--gold-1),var(--gold-2) 50%,var(--gold-1))}
+.pillar h2{font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:41.7u;line-height:1;margin-top:14u;letter-spacing:-.75u}
+.pillar .bar{width:53u;margin:10u auto 0}
+.pillar p{margin-top:13u;font-size:13.4u;line-height:19.4u;letter-spacing:.45u;font-weight:400}
+
+.h-majlis{height:568u;background:#030303 url(img/home-majlis-edge.png) 0 0/100% 100% no-repeat}
+.h-majlis .photo{position:absolute;top:0;left:50%;transform:translateX(-50%);width:853u;height:568u;background:url(img/home-majlis.jpg) 0 0/853u 568u no-repeat}
+.kicker{font-size:15u;letter-spacing:2.75u}
+.h-majlis .kicker{left:46u;top:73u}
+.h-majlis .display{left:42u;top:92u;font-size:58.5u;font-stretch:82%;letter-spacing:.4u}
+.h-majlis .bar{position:absolute;left:47u;top:161u;width:55u;height:5u}
+.h-majlis .copy{left:50u;top:198u;font-size:14.6u;line-height:21.4u;letter-spacing:.85u}
+.h-majlis .btn{left:48u;top:344u;width:310u;height:43u;font-size:14.6u;letter-spacing:.8u}
+
+/* ---------- MAJLIS ---------- */
+.m-hero{height:412u;background:#100f0c url(img/majlis-hero-edge.png) 0 0/100% 100% no-repeat}
+.m-hero .photo{position:absolute;top:0;left:50%;transform:translateX(-50%);width:853u;height:412u;background:url(img/majlis-hero.jpg) 0 0/853u 412u no-repeat}
+.m-hero .kicker{left:46u;top:117u;font-size:16.6u;letter-spacing:4.1u}
+.m-hero .display{left:46u;top:139u;font-size:58.5u;font-stretch:77.5%;letter-spacing:-1.3u}
+.m-hero .bar{position:absolute;left:47u;top:207u;width:64u;height:5u}
+.m-hero .copy{font-family:var(--body);left:47u;top:226u;font-size:13.7u;line-height:21u;font-weight:400;letter-spacing:.1u}
+
+.m-body{height:868u;background:radial-gradient(420u 210u at 290u 868u,#231f19,rgba(3,3,3,0) 100%),var(--ink)}
+.m-body .wrap{height:100%}
+.m-body h1,.m-body h2{position:absolute;font-family:var(--serif);font-weight:800;font-stretch:83.5%;line-height:1;white-space:nowrap}
+.form-title{left:50u;top:28u;font-size:37u;font-stretch:80.5% !important;letter-spacing:-.95u}
+.m-body .form-bar{position:absolute;left:50u;top:75u;width:64u;height:5u}
+form{position:absolute;left:50u;top:-11u;width:428u}
+.field{position:absolute;left:0;width:428u}
+.field > label{display:block;font-size:12.4u;letter-spacing:2.05u;font-weight:500;text-transform:uppercase;line-height:1;height:20u;padding-top:2u}
+.ctl{display:block;width:100%;height:42u;border:1u solid #3b3b3b;border-radius:3u;background:#0c0c0c;color:#fff;font-family:var(--body);font-size:13.8u;padding:3u 15u 0;outline:none;font-weight:400;letter-spacing:.15u}
+.ctl::placeholder{color:#a9a9a9;opacity:1}
+.ctl:focus,.phone:focus-within{border-color:var(--gold)}
+textarea.ctl{height:87u;padding-top:13u;resize:none;line-height:1.45}
+.phone{display:flex;height:44u;border:1u solid #3b3b3b;border-radius:3u;background:#0c0c0c}
+.phone .cc{font-family:var(--body);display:flex;align-items:center;width:151u;border-right:1u solid #3e3e3e;padding-left:15u;font-size:13.8u;color:#e8e8e8;cursor:pointer;position:relative}
+.phone .cc select{position:absolute;inset:0;opacity:0;cursor:pointer}
+.flag{width:25u;height:16u;margin-right:22u;display:block}
+.chev{width:12u;height:8u;margin-left:20u}
+.phone input{flex:1;border:0;background:transparent;height:100%;border-radius:0}
+.f1{top:110u}.f2{top:193u}.f3{top:274u}.f4{top:355u}.f5{top:441u}.f6{top:526u}
+.submit{position:absolute;left:0;top:657u;width:428u;height:56u;border:2u solid var(--gold);border-radius:2u;background:#050403;color:#fff;font-family:var(--sans);font-size:14.8u;letter-spacing:4.15u;font-weight:400;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,color .25s}
+.submit svg{width:19u;height:14u;margin-left:20u}
+.submit:hover{background:var(--gold);color:#000}
+.submit:hover svg path{stroke:#000}
+
+.aside-title{left:531u;top:72u;font-size:36.3u;font-stretch:81.5% !important;line-height:43.6u !important;letter-spacing:-.9u}
+.m-body .aside-bar{position:absolute;left:532u;top:213u;width:73u;height:5u}
+.aside-copy{font-family:var(--body);position:absolute;left:536u;top:246u;width:300u;font-size:17.4u;line-height:26.6u;letter-spacing:.2u;font-weight:400;white-space:nowrap}
+.rule{position:absolute;left:536u;top:493u;width:281u;height:1.5u;background:linear-gradient(90deg,#c99a45,#dcb064 50%,#c39443)}
+.contact-title{left:533u;top:526u;font-size:32.2u;letter-spacing:-.7u}
+.m-body .contact-bar{position:absolute;left:535u;top:571u;width:55u;height:4u}
+.contact-copy{font-family:var(--body);position:absolute;left:536u;top:593u;font-size:16.2u;line-height:24.8u;letter-spacing:.4u;white-space:nowrap}
+.email{font-family:var(--body);position:absolute;left:536u;top:720u;font-size:20.6u;color:#efbd4b;letter-spacing:.3u}
+.email:hover{text-decoration:underline}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.toast{position:absolute;left:0;top:700u;font-size:13u;color:var(--gold);opacity:0;transition:opacity .3s}
+.toast.on{opacity:1}
+
+@media (min-width:1281px){
+  .photo{-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+}
+
+/* ---------- PHONES: stack the poster layout ---------- */
+@media (max-width:640px){
+  :root{--u:calc(100vw / 400)}
+  .h-hero{height:auto;padding:28u 16u 300u}
+  .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:300u;background-size:auto 300u;background-position:78% 100%}
+  .logo,.h-hero .copy,.h-hero .btn,.h-hero .bar{position:relative;left:0;top:0}
+  .logo{font-size:64u}
+  .h-hero .bar{margin:16u 0 20u}
+  .h-hero .copy{white-space:normal;font-size:15u}
+  .h-hero .copy br{display:none}
+  .h-hero .btn{margin-top:24u;width:225u}
+  .h-hero .wrap{width:100%}
+  .photo{-webkit-mask-image:linear-gradient(transparent,#000 30%);mask-image:linear-gradient(transparent,#000 30%)}
+  .h-hero,.h-majlis,.m-hero{background-image:none}
+  .pillars{height:auto}
+  .pillars .wrap{display:block;width:100%;padding:8u 16u}
+  .pillar{padding:24u 0}
+  .pillar + .pillar::before{left:50%;top:0;width:80u;height:1u;transform:translateX(-50%)}
+  .pillar h2{margin-top:0}
+  .h-majlis{height:auto;padding:36u 16u 320u}
+  .h-majlis .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:320u;background-size:auto 330u;background-position:80% 100%;height:330u}
+  .h-majlis .wrap,.m-hero .wrap,.m-body .wrap{width:100%}
+  .h-majlis .kicker,.h-majlis .display,.h-majlis .bar,.h-majlis .copy,.h-majlis .btn{position:relative;left:0;top:0}
+  .h-majlis .bar{margin:12u 0 20u}
+  .h-majlis .copy{white-space:normal}
+  .h-majlis .copy br{display:none}
+  .h-majlis .btn{margin-top:24u}
+  .m-hero{height:auto;padding:36u 16u 300u}
+  .m-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:300u;background-size:auto 300u;background-position:70% 100%}
+  .m-hero .kicker,.m-hero .display,.m-hero .bar,.m-hero .copy{font-family:var(--body);position:relative;left:0;top:0}
+  .m-hero .bar{margin:12u 0 16u}
+  .m-hero .copy{font-family:var(--body);white-space:normal}
+  .m-hero .copy br{display:none}
+  .m-body{height:auto;padding:36u 16u 48u}
+  .m-body h1,.m-body h2,.m-body .form-bar,.m-body .aside-bar,.m-body .contact-bar,form,.field,.submit,.aside-copy,.rule,.contact-copy,.email,.toast{position:relative;left:0;top:0}
+  .m-body .form-bar,.m-body .aside-bar,.m-body .contact-bar{margin:14u 0 24u}
+  form{width:100%}.field{width:100%;margin-bottom:20u}.submit{width:100%}
+  .aside-title{margin-top:56u;white-space:normal !important}
+  .aside-copy,.contact-copy{font-family:var(--body);white-space:normal;width:auto}
+  .aside-copy br,.contact-copy br{display:none}
+  .rule{display:block;width:100%;margin:40u 0}
+  .form-title{font-size:33u;white-space:normal !important}
+  .m-body h1,.m-body h2{display:block}
+  .email{font-family:var(--body);display:inline-block;margin-top:14u}
+}
