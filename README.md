@@ -7,4 +7,4 @@ Static build of two KS Konnect pages, matched to the supplied mockups.
 
 `style.css` is generated from `src/style.src.css`. In the source, `Nu` means N pixels on the 853px-wide mockup and becomes `calc(N * var(--u))`, so the desktop layout keeps the mockup's proportions at any width up to 1280px. Phones get a single-column layout.
 
-Photos in `img/` are placeholders cropped from the mockups.
+The Majlis event photo (`img/majlis-event.jpg`) is the client's photo. The two portrait photos are still placeholders cropped from the mockups.
