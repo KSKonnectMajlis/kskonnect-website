@@ -27,20 +27,27 @@ a{color:inherit;text-decoration:none}
 .logo-sm{position:absolute;left:46u;top:28u;font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:21u;line-height:1;letter-spacing:-.5u}
 
 /* ---------- HOME ---------- */
-.h-hero{height:480u;background:var(--ink)}
-/* trailer box is 16:9 so the video's own captions are never cropped; the founders photo shows until it plays */
-.h-hero .photo{position:absolute;top:0;left:50%;transform:translateX(-50%);width:853u;height:480u;background:url(img/home-hero.jpg) center/cover no-repeat}
-.h-hero .photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(330u 175u at 165u 240u,rgba(3,3,3,.78),rgba(3,3,3,.5) 55%,rgba(3,3,3,0)),linear-gradient(rgba(3,3,3,.6),rgba(3,3,3,0) 20%)}
-.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
-.hero-vid.on{opacity:1}
-.h-hero .photo.ready{background:none}
-.sound{position:absolute;z-index:2;right:46u;top:24u;display:flex;align-items:center;height:30u;padding:0 13u;border:1u solid var(--gold);border-radius:2u;background:rgba(5,5,5,.55);color:#fff;font-family:var(--sans);font-size:10u;letter-spacing:1.6u;font-weight:400;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}
-.sound svg{width:15u;height:12u;margin-right:9u}
-.sound .wave,.sound.on .mute{display:none}
-.sound.on .wave{display:inline}
-.sound:hover{background:var(--gold);color:#000}
+.h-hero{height:553u;background:#141310 url(img/home-hero-edge.png) 0 0/100% 553u no-repeat}
+.h-hero .photo{position:absolute;inset:0;width:853u;left:50%;transform:translateX(-50%);height:553u;background:url(img/home-hero.jpg) 0 0/853u 553u no-repeat;cursor:pointer}
 .h-hero > .wrap{pointer-events:none}
-.h-hero .copy{pointer-events:auto;left:52u;top:192u;font-size:12.6u;line-height:19u;letter-spacing:.8u;font-weight:400;text-shadow:0 1px 10px rgba(0,0,0,.55)}
+.h-hero .copy{pointer-events:auto;left:52u;top:230u;font-size:12.6u;line-height:19u;letter-spacing:.8u;font-weight:400}
+/* play button over the founders, opens the corporate trailer */
+.play{position:absolute;left:527u;top:342u;width:76u;height:76u;border-radius:50%;border:1.5u solid var(--gold);background:rgba(5,5,5,.42);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s}
+.play svg{width:22u;height:24u;margin-left:5u}
+.play svg path{fill:var(--gold);transition:fill .25s}
+.play::before{content:"";position:absolute;inset:-1.5u;border-radius:50%;border:1.5u solid var(--gold);animation:ring 2.4s ease-out infinite}
+@keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
+.play:hover,.h-hero .photo:hover .play{background:var(--gold);transform:scale(1.06)}
+.play:hover svg path,.h-hero .photo:hover .play svg path{fill:#000}
+@media (prefers-reduced-motion:reduce){.play::before{animation:none;opacity:0}}
+
+/* trailer lightbox */
+.vmodal{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:60px 16px;background:rgba(0,0,0,.92)}
+.vmodal[hidden]{display:none}
+.vmodal video{display:block;width:min(100%, 1280px, calc((100vh - 120px) * 16 / 9));aspect-ratio:16/9;background:#000;outline:1px solid rgba(209,170,85,.35)}
+.vclose{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s,color .25s}
+.vclose svg{width:14px;height:14px}
+.vclose:hover{background:var(--gold);color:#000}
 
 .pillars{background:#020202;padding-bottom:44u}
 .pillars .wrap{display:grid;grid-template-columns:276u 300u 277u;height:140u}
@@ -97,23 +104,21 @@ textarea.ctl{height:84u;padding-top:12u;resize:none;line-height:1.45}
 
 @media (min-width:1101px){
   .photo{-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-  .h-hero .photo{-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
 }
 
 /* ---------- PHONES: stack the layout ---------- */
 @media (max-width:640px){
   :root{--u:calc(100vw / 400)}
   .logo-sm{left:16u;top:20u;font-size:22u}
-  .h-hero{height:auto;padding:80u 16u 253u}
-  .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:225u}
-  .h-hero .photo::after{display:none}
-  .sound{right:10u;top:10u;height:28u;padding:0 11u;font-size:10u}
+  .h-hero{height:auto;padding:80u 16u 300u}
+  .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:340u;background-size:auto 340u;background-position:100% 100%}
+  .play{left:186u;top:198u;width:68u;height:68u}
   .h-hero .copy{position:relative;left:0;top:0}
   .h-hero .copy{white-space:normal;font-size:13.5u;line-height:20u}
   .h-hero .copy br,.h-majlis .copy br{display:none}
   .wrap{width:100%}
   .photo{-webkit-mask-image:linear-gradient(transparent,#000 30%);mask-image:linear-gradient(transparent,#000 30%)}
-  .h-hero .photo{-webkit-mask-image:none;mask-image:none}
+  .h-hero{background-image:none}
   .pillars{height:auto}
   .pillars .wrap{display:block;height:auto;padding:8u 16u}
   .cta{padding-top:4u}
