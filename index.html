@@ -4,7 +4,17 @@
 <meta name="description" content="We connect global talent, capital and ambitious brands to scale businesses through strategic partnerships and viral storytelling.">
 </head><body>
 <header class="full h-hero">
-  <div class="photo" role="img" aria-label="KS Konnect founders"></div>
+  <div class="photo">
+    <video class="hero-vid" id="trailer" autoplay muted loop playsinline preload="auto" poster="img/home-hero.jpg" aria-label="KS Konnect corporate trailer">
+      <source src="video/ks-konnect-trailer-360.mp4" type="video/mp4" media="(max-width: 640px)">
+      <source src="video/ks-konnect-trailer.mp4" type="video/mp4">
+    </video>
+    <noscript><style>.hero-vid{opacity:1}</style></noscript>
+    <button class="sound" id="sound" type="button" aria-pressed="false">
+      <svg viewBox="0 0 20 16" aria-hidden="true"><path d="M2 5.5h3.5L10 1.5v13l-4.5-4H2z" fill="currentColor"/><path class="wave" d="M13 5a4 4 0 0 1 0 6M15.5 2.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path class="mute" d="M13 5.5l5 5M18 5.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span>Sound on</span>
+    </button>
+  </div>
   <div class="site-head"><div class="wrap"><h1 class="logo-sm"><a href="index.html">KSKonnect</a></h1></div></div>
   <div class="wrap" style="height:100%">
     <p class="copy">WE CONNECT GLOBAL TALENT, <br>CAPITAL AND AMBITIOUS BRANDS <br>TO SCALE BUSINESSES THROUGH <br>STRATEGIC PARTNERSHIPS <br>AND VIRAL STORYTELLING.</p>
@@ -29,4 +39,21 @@
     <a class="btn" href="majlis.html">Inquire about membership</a>
   </div>
 </section>
+<script>
+(function(){
+  var v=document.getElementById('trailer'),b=document.getElementById('sound'),label=b.querySelector('span'),heard=false;
+  function show(){if(v.classList.contains('on'))return;v.classList.add('on');setTimeout(function(){v.parentNode.classList.add('ready')},1100)}
+  v.addEventListener('playing',show);
+  if(!v.paused&&v.readyState>2)show();
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.pause();label.textContent='Play trailer'}
+  function sync(){var on=!v.muted&&!v.paused;b.setAttribute('aria-pressed',on);b.classList.toggle('on',on);label.textContent=on?'Sound off':'Sound on'}
+  b.addEventListener('click',function(){
+    if(v.muted||v.paused){
+      if(!heard){v.currentTime=0;heard=true}
+      v.muted=false;v.play();
+    }else v.muted=true;
+    sync();
+  });
+})();
+</script>
 </body></html>

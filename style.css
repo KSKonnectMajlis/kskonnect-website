@@ -27,9 +27,20 @@ a{color:inherit;text-decoration:none}
 .logo-sm{position:absolute;left:calc(46 * var(--u));top:calc(28 * var(--u));font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:calc(21 * var(--u));line-height:1;letter-spacing:calc(-.5 * var(--u))}
 
 /* ---------- HOME ---------- */
-.h-hero{height:calc(553 * var(--u));background:#141310 url(img/home-hero-edge.png) 0 0/100% calc(553 * var(--u)) no-repeat}
-.h-hero .photo{position:absolute;inset:0;width:calc(853 * var(--u));left:50%;transform:translateX(-50%);height:calc(553 * var(--u));background:url(img/home-hero.jpg) 0 0/calc(853 * var(--u)) calc(553 * var(--u)) no-repeat}
-.h-hero .copy{left:calc(52 * var(--u));top:calc(230 * var(--u));font-size:calc(12.6 * var(--u));line-height:calc(19 * var(--u));letter-spacing:calc(.8 * var(--u));font-weight:400}
+.h-hero{height:calc(480 * var(--u));background:var(--ink)}
+/* trailer box is 16:9 so the video's own captions are never cropped; the founders photo shows until it plays */
+.h-hero .photo{position:absolute;top:0;left:50%;transform:translateX(-50%);width:calc(853 * var(--u));height:calc(480 * var(--u));background:url(img/home-hero.jpg) center/cover no-repeat}
+.h-hero .photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(calc(330 * var(--u)) calc(175 * var(--u)) at calc(165 * var(--u)) calc(240 * var(--u)),rgba(3,3,3,.78),rgba(3,3,3,.5) 55%,rgba(3,3,3,0)),linear-gradient(rgba(3,3,3,.6),rgba(3,3,3,0) 20%)}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
+.hero-vid.on{opacity:1}
+.h-hero .photo.ready{background:none}
+.sound{position:absolute;z-index:2;right:calc(46 * var(--u));top:calc(24 * var(--u));display:flex;align-items:center;height:calc(30 * var(--u));padding:0 calc(13 * var(--u));border:calc(1 * var(--u)) solid var(--gold);border-radius:calc(2 * var(--u));background:rgba(5,5,5,.55);color:#fff;font-family:var(--sans);font-size:calc(10 * var(--u));letter-spacing:calc(1.6 * var(--u));font-weight:400;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}
+.sound svg{width:calc(15 * var(--u));height:calc(12 * var(--u));margin-right:calc(9 * var(--u))}
+.sound .wave,.sound.on .mute{display:none}
+.sound.on .wave{display:inline}
+.sound:hover{background:var(--gold);color:#000}
+.h-hero > .wrap{pointer-events:none}
+.h-hero .copy{pointer-events:auto;left:calc(52 * var(--u));top:calc(192 * var(--u));font-size:calc(12.6 * var(--u));line-height:calc(19 * var(--u));letter-spacing:calc(.8 * var(--u));font-weight:400;text-shadow:0 1px 10px rgba(0,0,0,.55)}
 
 .pillars{background:#020202;padding-bottom:calc(44 * var(--u))}
 .pillars .wrap{display:grid;grid-template-columns:calc(276 * var(--u)) calc(300 * var(--u)) calc(277 * var(--u));height:calc(140 * var(--u))}
@@ -71,6 +82,7 @@ textarea.ctl{height:calc(84 * var(--u));padding-top:calc(12 * var(--u));resize:n
 .submit{margin-top:calc(8 * var(--u));width:100%;height:calc(50 * var(--u));border:calc(1.5 * var(--u)) solid var(--gold);border-radius:calc(2 * var(--u));background:#050403;color:#fff;font-family:var(--sans);font-size:calc(13 * var(--u));letter-spacing:calc(3.6 * var(--u));font-weight:400;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,color .25s}
 .submit svg{width:calc(17 * var(--u));height:calc(12 * var(--u));margin-left:calc(18 * var(--u))}
 .submit:hover{background:var(--gold);color:#000}
+.submit:disabled{opacity:.6;cursor:wait}
 .submit:hover svg path{stroke:#000}
 .toast{margin-top:calc(12 * var(--u));font-size:calc(12 * var(--u));color:var(--gold-text);opacity:0;transition:opacity .3s}
 .toast.on{opacity:1}
@@ -85,20 +97,23 @@ textarea.ctl{height:calc(84 * var(--u));padding-top:calc(12 * var(--u));resize:n
 
 @media (min-width:1101px){
   .photo{-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .h-hero .photo{-webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
 }
 
 /* ---------- PHONES: stack the layout ---------- */
 @media (max-width:640px){
   :root{--u:calc(100vw / 400)}
   .logo-sm{left:calc(16 * var(--u));top:calc(20 * var(--u));font-size:calc(22 * var(--u))}
-  .h-hero{height:auto;padding:calc(80 * var(--u)) calc(16 * var(--u)) calc(300 * var(--u))}
-  .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(340 * var(--u));background-size:auto calc(340 * var(--u));background-position:100% 100%}
+  .h-hero{height:auto;padding:calc(80 * var(--u)) calc(16 * var(--u)) calc(253 * var(--u))}
+  .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(225 * var(--u))}
+  .h-hero .photo::after{display:none}
+  .sound{right:calc(10 * var(--u));top:calc(10 * var(--u));height:calc(28 * var(--u));padding:0 calc(11 * var(--u));font-size:calc(10 * var(--u))}
   .h-hero .copy{position:relative;left:0;top:0}
   .h-hero .copy{white-space:normal;font-size:calc(13.5 * var(--u));line-height:calc(20 * var(--u))}
   .h-hero .copy br,.h-majlis .copy br{display:none}
   .wrap{width:100%}
   .photo{-webkit-mask-image:linear-gradient(transparent,#000 30%);mask-image:linear-gradient(transparent,#000 30%)}
-  .h-hero{background-image:none}
+  .h-hero .photo{-webkit-mask-image:none;mask-image:none}
   .pillars{height:auto}
   .pillars .wrap{display:block;height:auto;padding:calc(8 * var(--u)) calc(16 * var(--u))}
   .cta{padding-top:calc(4 * var(--u))}
