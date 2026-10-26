@@ -11,7 +11,6 @@
 html{background:var(--ink)}
 body{background:var(--ink);color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-.bar{display:block;height:3u;width:44u;background:var(--gold)}
 .btn{position:absolute;display:flex;align-items:center;justify-content:center;border:1.5u solid var(--gold);background:#050505;color:#fff;font-family:var(--sans);font-weight:400;text-transform:uppercase;transition:background .25s,color .25s}
 .btn:hover{background:var(--gold);color:#000}
 .wrap{position:relative;width:853u;margin:0 auto}
@@ -38,8 +37,7 @@ a{color:inherit;text-decoration:none}
 .pillar{position:relative;text-align:center}
 .pillar + .pillar::before{content:"";position:absolute;left:0;top:24u;width:1u;height:92u;background:var(--gold)}
 .pillar .title{margin-top:20u}
-.pillar .bar{margin:10u auto 0}
-.pillar p{margin-top:12u;font-size:11.4u;line-height:17u;letter-spacing:.4u;font-weight:400}
+.pillar p{margin-top:14u;font-size:11.4u;line-height:17u;letter-spacing:.4u;font-weight:400}
 
 .h-majlis{height:460u;background:#030303;overflow:hidden}
 .h-majlis .photo{position:absolute;top:0;left:50%;transform:translateX(-50%);width:853u;height:460u}
@@ -47,16 +45,15 @@ a{color:inherit;text-decoration:none}
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%),linear-gradient(transparent,#000 12%,#000 86%,transparent);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent,#000 7%),linear-gradient(transparent,#000 12%,#000 86%,transparent);mask-composite:intersect}
 .kicker{font-size:12.6u;letter-spacing:2.4u}
-.h-majlis .kicker{left:48u;top:86u}
-.h-majlis .title{position:absolute;left:47u;top:102u;line-height:1}
-.h-majlis .bar{position:absolute;left:48u;top:144u}
-.h-majlis .copy{left:50u;top:166u;font-size:12.4u;line-height:18.5u;letter-spacing:.7u}
-.h-majlis .btn{left:48u;top:298u;width:246u;height:38u;font-size:12.4u;letter-spacing:.9u}
+.h-majlis .kicker{left:48u;top:92u}
+.h-majlis .title{position:absolute;left:47u;top:108u;line-height:1}
+.h-majlis .copy{left:50u;top:154u;font-size:12.4u;line-height:18.5u;letter-spacing:.7u}
+.h-majlis .btn{left:48u;top:286u;width:246u;height:38u;font-size:12.4u;letter-spacing:.9u}
 
 /* ---------- MAJLIS (membership form) ---------- */
 .m-body{padding:16u 0 96u;background:radial-gradient(420u 210u at 290u 100%,#231f19,rgba(3,3,3,0) 100%),var(--ink)}
 .m-body .wrap{display:grid;grid-template-columns:428u 290u;column-gap:53u;padding-left:50u;align-items:start}
-.m-body .bar{margin:12u 0 26u}
+.m-body .title{margin-bottom:24u}
 .field{margin-bottom:18u}
 .field > label{display:block;font-size:11u;letter-spacing:2u;font-weight:500;text-transform:uppercase;line-height:1;height:18u}
 .ctl{display:block;width:100%;height:40u;border:1u solid #3b3b3b;border-radius:3u;background:#0c0c0c;color:#fff;font-family:var(--body);font-size:12.8u;padding:2u 14u 0;outline:none;font-weight:400;letter-spacing:.15u}
@@ -110,9 +107,9 @@ textarea.ctl{height:84u;padding-top:12u;resize:none;line-height:1.45}
   .h-majlis{height:auto;padding:36u 16u 310u}
   .h-majlis .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:290u}
   .h-majlis .photo::before{left:0;top:0;width:100%;height:100%;-webkit-mask-image:linear-gradient(transparent,#000 22%);mask-image:linear-gradient(transparent,#000 22%)}
-  .h-majlis .kicker,.h-majlis .title,.h-majlis .bar,.h-majlis .copy,.h-majlis .btn{position:relative;left:0;top:0}
+  .h-majlis .kicker,.h-majlis .title,.h-majlis .copy,.h-majlis .btn{position:relative;left:0;top:0}
   .h-majlis .title{margin-top:6u}
-  .h-majlis .bar{margin:12u 0 18u}
+  .h-majlis .copy{margin-top:16u}
   .h-majlis .copy{white-space:normal;font-size:13u;line-height:19.5u}
   .h-majlis .btn{margin-top:22u;width:260u;height:42u;font-size:12.6u}
   .site-head.static{height:64u}

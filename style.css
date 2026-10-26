@@ -11,7 +11,6 @@
 html{background:var(--ink)}
 body{background:var(--ink);color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-.bar{display:block;height:calc(3 * var(--u));width:calc(44 * var(--u));background:var(--gold)}
 .btn{position:absolute;display:flex;align-items:center;justify-content:center;border:calc(1.5 * var(--u)) solid var(--gold);background:#050505;color:#fff;font-family:var(--sans);font-weight:400;text-transform:uppercase;transition:background .25s,color .25s}
 .btn:hover{background:var(--gold);color:#000}
 .wrap{position:relative;width:calc(853 * var(--u));margin:0 auto}
@@ -38,8 +37,7 @@ a{color:inherit;text-decoration:none}
 .pillar{position:relative;text-align:center}
 .pillar + .pillar::before{content:"";position:absolute;left:0;top:calc(24 * var(--u));width:calc(1 * var(--u));height:calc(92 * var(--u));background:var(--gold)}
 .pillar .title{margin-top:calc(20 * var(--u))}
-.pillar .bar{margin:calc(10 * var(--u)) auto 0}
-.pillar p{margin-top:calc(12 * var(--u));font-size:calc(11.4 * var(--u));line-height:calc(17 * var(--u));letter-spacing:calc(.4 * var(--u));font-weight:400}
+.pillar p{margin-top:calc(14 * var(--u));font-size:calc(11.4 * var(--u));line-height:calc(17 * var(--u));letter-spacing:calc(.4 * var(--u));font-weight:400}
 
 .h-majlis{height:calc(460 * var(--u));background:#030303;overflow:hidden}
 .h-majlis .photo{position:absolute;top:0;left:50%;transform:translateX(-50%);width:calc(853 * var(--u));height:calc(460 * var(--u))}
@@ -47,16 +45,15 @@ a{color:inherit;text-decoration:none}
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%),linear-gradient(transparent,#000 12%,#000 86%,transparent);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent,#000 7%),linear-gradient(transparent,#000 12%,#000 86%,transparent);mask-composite:intersect}
 .kicker{font-size:calc(12.6 * var(--u));letter-spacing:calc(2.4 * var(--u))}
-.h-majlis .kicker{left:calc(48 * var(--u));top:calc(86 * var(--u))}
-.h-majlis .title{position:absolute;left:calc(47 * var(--u));top:calc(102 * var(--u));line-height:1}
-.h-majlis .bar{position:absolute;left:calc(48 * var(--u));top:calc(144 * var(--u))}
-.h-majlis .copy{left:calc(50 * var(--u));top:calc(166 * var(--u));font-size:calc(12.4 * var(--u));line-height:calc(18.5 * var(--u));letter-spacing:calc(.7 * var(--u))}
-.h-majlis .btn{left:calc(48 * var(--u));top:calc(298 * var(--u));width:calc(246 * var(--u));height:calc(38 * var(--u));font-size:calc(12.4 * var(--u));letter-spacing:calc(.9 * var(--u))}
+.h-majlis .kicker{left:calc(48 * var(--u));top:calc(92 * var(--u))}
+.h-majlis .title{position:absolute;left:calc(47 * var(--u));top:calc(108 * var(--u));line-height:1}
+.h-majlis .copy{left:calc(50 * var(--u));top:calc(154 * var(--u));font-size:calc(12.4 * var(--u));line-height:calc(18.5 * var(--u));letter-spacing:calc(.7 * var(--u))}
+.h-majlis .btn{left:calc(48 * var(--u));top:calc(286 * var(--u));width:calc(246 * var(--u));height:calc(38 * var(--u));font-size:calc(12.4 * var(--u));letter-spacing:calc(.9 * var(--u))}
 
 /* ---------- MAJLIS (membership form) ---------- */
 .m-body{padding:calc(16 * var(--u)) 0 calc(96 * var(--u));background:radial-gradient(calc(420 * var(--u)) calc(210 * var(--u)) at calc(290 * var(--u)) 100%,#231f19,rgba(3,3,3,0) 100%),var(--ink)}
 .m-body .wrap{display:grid;grid-template-columns:calc(428 * var(--u)) calc(290 * var(--u));column-gap:calc(53 * var(--u));padding-left:calc(50 * var(--u));align-items:start}
-.m-body .bar{margin:calc(12 * var(--u)) 0 calc(26 * var(--u))}
+.m-body .title{margin-bottom:calc(24 * var(--u))}
 .field{margin-bottom:calc(18 * var(--u))}
 .field > label{display:block;font-size:calc(11 * var(--u));letter-spacing:calc(2 * var(--u));font-weight:500;text-transform:uppercase;line-height:1;height:calc(18 * var(--u))}
 .ctl{display:block;width:100%;height:calc(40 * var(--u));border:calc(1 * var(--u)) solid #3b3b3b;border-radius:calc(3 * var(--u));background:#0c0c0c;color:#fff;font-family:var(--body);font-size:calc(12.8 * var(--u));padding:calc(2 * var(--u)) calc(14 * var(--u)) 0;outline:none;font-weight:400;letter-spacing:calc(.15 * var(--u))}
@@ -110,9 +107,9 @@ textarea.ctl{height:calc(84 * var(--u));padding-top:calc(12 * var(--u));resize:n
   .h-majlis{height:auto;padding:calc(36 * var(--u)) calc(16 * var(--u)) calc(310 * var(--u))}
   .h-majlis .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(290 * var(--u))}
   .h-majlis .photo::before{left:0;top:0;width:100%;height:100%;-webkit-mask-image:linear-gradient(transparent,#000 22%);mask-image:linear-gradient(transparent,#000 22%)}
-  .h-majlis .kicker,.h-majlis .title,.h-majlis .bar,.h-majlis .copy,.h-majlis .btn{position:relative;left:0;top:0}
+  .h-majlis .kicker,.h-majlis .title,.h-majlis .copy,.h-majlis .btn{position:relative;left:0;top:0}
   .h-majlis .title{margin-top:calc(6 * var(--u))}
-  .h-majlis .bar{margin:calc(12 * var(--u)) 0 calc(18 * var(--u))}
+  .h-majlis .copy{margin-top:calc(16 * var(--u))}
   .h-majlis .copy{white-space:normal;font-size:calc(13 * var(--u));line-height:calc(19.5 * var(--u))}
   .h-majlis .btn{margin-top:calc(22 * var(--u));width:calc(260 * var(--u));height:calc(42 * var(--u));font-size:calc(12.6 * var(--u))}
   .site-head.static{height:calc(64 * var(--u))}
