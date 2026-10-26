@@ -32,7 +32,7 @@ a{color:inherit;text-decoration:none}
 .h-hero > .wrap{pointer-events:none}
 .h-hero .copy{pointer-events:auto;left:calc(52 * var(--u));top:calc(230 * var(--u));font-size:calc(12.6 * var(--u));line-height:calc(19 * var(--u));letter-spacing:calc(.8 * var(--u));font-weight:400}
 /* play button over the founders, opens the corporate trailer */
-.play{position:absolute;left:calc(537 * var(--u));top:calc(352 * var(--u));width:calc(56 * var(--u));height:calc(56 * var(--u));border-radius:50%;border:calc(1.5 * var(--u)) solid var(--gold);background:rgba(5,5,5,.42);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s}
+.play{position:absolute;left:calc(487 * var(--u));top:calc(352 * var(--u));width:calc(56 * var(--u));height:calc(56 * var(--u));border-radius:50%;border:calc(1.5 * var(--u)) solid var(--gold);background:rgba(5,5,5,.42);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s}
 .play svg{width:calc(16 * var(--u));height:calc(18 * var(--u));margin-left:calc(4 * var(--u))}
 .play svg path{fill:var(--gold);transition:fill .25s}
 .play::before{content:"";position:absolute;inset:calc(-1.5 * var(--u));border-radius:50%;border:calc(1.5 * var(--u)) solid var(--gold);animation:ring 2.4s ease-out infinite}
@@ -112,7 +112,7 @@ textarea.ctl{height:calc(84 * var(--u));padding-top:calc(12 * var(--u));resize:n
   .logo-sm{left:calc(16 * var(--u));top:calc(20 * var(--u));font-size:calc(22 * var(--u))}
   .h-hero{height:auto;padding:calc(80 * var(--u)) calc(16 * var(--u)) calc(300 * var(--u))}
   .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(340 * var(--u));background-size:auto calc(340 * var(--u));background-position:100% 100%}
-  .play{left:calc(194 * var(--u));top:calc(206 * var(--u));width:calc(52 * var(--u));height:calc(52 * var(--u))}
+  .play{left:calc(163 * var(--u));top:calc(206 * var(--u));width:calc(52 * var(--u));height:calc(52 * var(--u))}
   .play svg{width:calc(15 * var(--u));height:calc(17 * var(--u))}
   .h-hero .copy{position:relative;left:0;top:0}
   .h-hero .copy{white-space:normal;font-size:calc(13.5 * var(--u));line-height:calc(20 * var(--u))}
