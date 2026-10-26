@@ -47,6 +47,7 @@
 <script>
 // Inquiries are emailed through FormSubmit (formsubmit.co); the code below stands in for the inbox address.
 var INBOX='https://formsubmit.co/ajax/09a74bacd2674d088d8ec587eef45a07';
+var CC='sarah@mavenmarketingandevents.com';
 document.getElementById('interest').addEventListener('submit',function(e){
   e.preventDefault();
   var f=this,t=document.getElementById('toast'),btn=f.querySelector('.submit'),req=f.querySelectorAll('[required]');
@@ -57,7 +58,7 @@ document.getElementById('interest').addEventListener('submit',function(e){
   if(bad.length){t.textContent='Please complete the required fields.';return}
   btn.disabled=true;t.textContent='Sending your inquiry...';
   fetch(INBOX,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
-    _subject:'New Majlis membership inquiry: '+v('name'),_template:'table',_captcha:'false',_replyto:v('email'),_honey:v('_honey'),
+    _subject:'New Majlis membership inquiry: '+v('name'),_template:'table',_captcha:'false',_cc:CC,_replyto:v('email'),_honey:v('_honey'),
     'Full name':v('name'),'Company':v('company'),'Title':v('title'),'WhatsApp':v('country_code')+' '+v('whatsapp'),'Email':v('email'),'Additional comments':v('comments')||'-'
   })}).then(function(r){return r.json()}).then(function(j){
     if(String(j.success)!=='true')throw j;
