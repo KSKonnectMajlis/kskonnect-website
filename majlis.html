@@ -64,8 +64,9 @@ document.getElementById('interest').addEventListener('submit',function(e){
     if(String(j.success)!=='true')throw j;
     f.reset();document.getElementById('ccv').textContent='+971';
     t.textContent='Thank you. We will be in touch shortly.';
-  }).catch(function(){
-    t.textContent='Sorry, that did not send. Please email us at scale@kskonnect.ae.';
+  }).catch(function(err){
+    var why=err&&err.message?String(err.message):'';
+    t.textContent=/activat/i.test(why)?'This form is waiting for activation. Please email us at scale@kskonnect.ae for now.':'Sorry, that did not send. Please email us at scale@kskonnect.ae.'+(why?' ('+why+')':'');
   }).then(function(){btn.disabled=false});
 });
 </script>
