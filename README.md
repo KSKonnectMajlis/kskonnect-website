@@ -11,6 +11,6 @@ The founders portrait (`img/home-hero.jpg`) and the Majlis event photo (`img/maj
 
 The home page has a play button over the founders portrait. Clicking it (or anywhere on the photo) opens the KS Konnect corporate trailer (`video/ks-konnect-trailer.mp4`, 720p) in a lightbox with sound and player controls. `img/trailer-poster.jpg` is its closing frame, shown before playback starts.
 
-Inquiries from the Majlis form are emailed through FormSubmit (formsubmit.co). The first submission sends an activation email to the inbox, and forms only deliver after that link is clicked.
+Inquiries from the Majlis form are emailed through FormSubmit (formsubmit.co), using the inbox's FormSubmit code rather than the address itself.
 
 The site is deployed on Vercel from the `main` branch.
