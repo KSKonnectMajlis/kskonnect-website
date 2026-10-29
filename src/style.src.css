@@ -1,4 +1,5 @@
-/* KS Konnect. Layout is drawn on the 853px mockup grid: "Nu" = N mockup pixels, scaled to the viewport (capped at 1100px). */
+/* KS Konnect. Layout is drawn on the 853px mockup grid: "Nu" = N mockup pixels, scaled to the viewport (capped at 1100px,
+   or 1600px on the home page so it fills a laptop screen). */
 :root{
   --u: calc(min(100vw, 1100px) / 853);
   --gold:#d1aa55; --gold-text:#e2bb5e;
@@ -7,6 +8,7 @@
   --body:'Nunito Sans', 'Avenir Next', Avenir, sans-serif;
   --sans:'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 }
+.home{--u: calc(min(100vw, 1600px) / 853)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--ink)}
 body{background:var(--ink);color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -27,19 +29,20 @@ a{color:inherit;text-decoration:none}
 .logo-sm{position:absolute;left:46u;top:28u;font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:21u;line-height:1;letter-spacing:-.5u}
 
 /* ---------- HOME ---------- */
-.h-hero{height:553u;background:#141310 url(img/home-hero-edge.png) 0 0/100% 553u no-repeat}
-.h-hero .photo{position:absolute;inset:0;width:853u;left:50%;transform:translateX(-50%);height:553u;background:url(img/home-hero.jpg) 0 0/853u 553u no-repeat;cursor:pointer}
+/* the hero image is 553u tall; its top 80u is empty backdrop, so it's cropped off to sit the founders higher */
+.h-hero{height:473u;background:#141310 url(img/home-hero-edge.png) 0 -80u/100% 553u no-repeat}
+.h-hero .photo{position:absolute;inset:0;width:853u;left:50%;transform:translateX(-50%);height:473u;background:url(img/home-hero.jpg) 0 -80u/853u 553u no-repeat;cursor:pointer}
 .h-hero > .wrap{pointer-events:none}
-.h-hero .copy{pointer-events:auto;left:52u;top:230u;font-size:12.6u;line-height:19u;letter-spacing:.8u;font-weight:400}
+.h-hero .copy{pointer-events:auto;left:52u;top:150u;font-size:12.6u;line-height:19u;letter-spacing:.8u;font-weight:400}
 /* play button over the founders and "Explore our story" box under the headline; both open the corporate trailer */
-.play{position:absolute;left:493u;top:358u;width:44u;height:44u;border-radius:50%;border:1.5u solid #fff;background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s}
+.play{position:absolute;left:493u;top:278u;width:44u;height:44u;border-radius:50%;border:1.5u solid #fff;background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s}
 .play svg{width:13u;height:14u;margin-left:3u}
 .play svg path{fill:#fff;transition:fill .25s}
 .play::before{content:"";position:absolute;inset:-1.5u;border-radius:50%;border:1.5u solid rgba(255,255,255,.85);animation:ring 2.4s ease-out infinite}
 @keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
 .play:hover,.h-hero .photo:hover .play{background:#fff;transform:scale(1.06)}
 .play:hover svg path,.h-hero .photo:hover .play svg path{fill:#000}
-.story{position:absolute;left:52u;top:352u;width:230u;height:40u;display:flex;align-items:center;justify-content:center;padding-left:3.2u;border:1.5u solid transparent;border-image:linear-gradient(90deg,#9a7632,#e2bb5e 30%,#f6dc95 50%,#d1aa55 70%,#9a7632) 1;background:linear-gradient(90deg,rgba(8,7,6,.9),rgba(30,26,20,.82) 70%,rgba(8,7,6,.9));box-shadow:0 4u 18u rgba(0,0,0,.45);color:#fff;font-family:var(--sans);font-size:11u;letter-spacing:3.2u;font-weight:500;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
+.story{position:absolute;left:52u;top:272u;width:230u;height:40u;display:flex;align-items:center;justify-content:center;padding-left:3.2u;border:1.5u solid transparent;border-image:linear-gradient(90deg,#9a7632,#e2bb5e 30%,#f6dc95 50%,#d1aa55 70%,#9a7632) 1;background:linear-gradient(90deg,rgba(8,7,6,.9),rgba(30,26,20,.82) 70%,rgba(8,7,6,.9));box-shadow:0 4u 18u rgba(0,0,0,.45);color:#fff;font-family:var(--sans);font-size:11u;letter-spacing:3.2u;font-weight:500;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
 .story:hover{background:var(--gold);color:#000}
 @media (prefers-reduced-motion:reduce){.play::before{animation:none;opacity:0}}
 
@@ -105,13 +108,14 @@ textarea.ctl{height:84u;padding-top:12u;resize:none;line-height:1.45}
 .email{display:inline-block;margin-top:10u;font-family:var(--body);font-size:17u;color:var(--gold-text);letter-spacing:.3u}
 .email:hover{text-decoration:underline}
 
-@media (min-width:1101px){
+/* only once the page stops growing do the photos need their sides faded into the background */
+@media (min-width:1601px){
   .photo{-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
 }
 
 /* ---------- PHONES: stack the layout ---------- */
 @media (max-width:640px){
-  :root{--u:calc(100vw / 400)}
+  :root,.home{--u:calc(100vw / 400)}
   .logo-sm{left:16u;top:20u;font-size:22u}
   .h-hero{height:auto;padding:80u 16u 300u}
   .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:340u;background-size:auto 340u;background-position:100% 100%}
