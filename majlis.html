@@ -45,7 +45,9 @@
   </div>
 </main>
 <script>
-// Inquiries are emailed through FormSubmit (formsubmit.co); the code below stands in for the inbox address.
+// Inquiries are emailed through Web3Forms (the key is public by design). If Web3Forms can't take
+// one, FormSubmit is tried next; its code below stands in for the inbox address.
+var WEB3='https://api.web3forms.com/submit',WEB3_KEY='4cfa48c7-e50f-45bf-9ffd-a785924dba8c';
 var INBOX='https://formsubmit.co/ajax/09a74bacd2674d088d8ec587eef45a07';
 var CC='sarah@mavenmarketingandevents.com';
 var TO='scale@kskonnect.ae';
@@ -55,12 +57,17 @@ function syncCC(){
   document.getElementById('ccv').textContent=c;
   document.querySelector('.phone .flag').style.display=c==='+971'?'':'none';
 }
-// If FormSubmit can't be reached or refuses the inquiry, keep the visitor on the page and offer
+// Both services answer JSON with success true or false.
+function send(url,data){
+  return fetch(url,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+    .then(function(r){return r.json()}).then(function(j){if(String(j.success)!=='true')throw j;return j});
+}
+// If neither service takes the inquiry, keep the visitor on the page and offer
 // the same details as a ready-to-send email, so the inquiry isn't lost.
-function offerEmail(t,fields,lead){
-  var body=Object.keys(fields).filter(function(k){return k.charAt(0)!=='_'}).map(function(k){return k+': '+fields[k]}).join('\n');
+function offerEmail(t,subject,info,lead){
+  var body=Object.keys(info).map(function(k){return k+': '+info[k]}).join('\n');
   var a=document.createElement('a');
-  a.href='mailto:'+TO+'?subject='+encodeURIComponent(fields._subject)+'&body='+encodeURIComponent(body);
+  a.href='mailto:'+TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
   a.textContent='Email your details to '+TO;
   t.textContent=lead+' ';t.appendChild(a);
 }
@@ -72,20 +79,18 @@ document.getElementById('interest').addEventListener('submit',function(e){
   req.forEach(function(i){i.closest('.phone,.ctl').style.borderColor=i.checkValidity()?'':'#c0392b'});
   t.classList.add('on');
   if(bad.length){t.textContent='Please complete the required fields.';return}
+  function done(){f.reset();syncCC();t.textContent='Thank you. We will be in touch shortly.'}
+  if(v('_honey')){done();return}   // a bot filled the hidden field
   btn.disabled=true;t.textContent='Sending your inquiry...';
-  var fields={
-    _subject:'New Majlis membership inquiry: '+v('name'),_template:'table',_captcha:'false',_cc:CC,_replyto:v('email'),_honey:v('_honey'),
-    'Full name':v('name'),'Company':v('company'),'Title':v('title'),'WhatsApp':v('country_code')+' '+v('whatsapp'),'Email':v('email'),'Additional comments':v('comments')||'-'
-  };
-  fetch(INBOX,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(fields)}).then(function(r){return r.json()}).then(function(j){
-    if(String(j.success)!=='true')throw j;
-    f.reset();syncCC();
-    t.textContent='Thank you. We will be in touch shortly.';
-  }).catch(function(err){
-    // A TypeError or SyntaxError means FormSubmit didn't answer (offline, or its server is down).
+  var subject='New Majlis membership inquiry: '+v('name');
+  var info={'Full name':v('name'),'Company':v('company'),'Title':v('title'),'WhatsApp':v('country_code')+' '+v('whatsapp'),'Email':v('email'),'Additional comments':v('comments')||'-'};
+  var web3=Object.assign({access_key:WEB3_KEY,subject:subject,from_name:'KS Konnect website',replyto:v('email')},info);
+  var formsubmit=Object.assign({_subject:subject,_template:'table',_captcha:'false',_cc:CC,_replyto:v('email')},info);
+  send(WEB3,web3).catch(function(){return send(INBOX,formsubmit)}).then(done).catch(function(err){
+    // A TypeError or SyntaxError means the service didn't answer (offline, or its server is down).
     var down=err instanceof TypeError||err instanceof SyntaxError;
     var why=!down&&err&&err.message?String(err.message):'';
-    offerEmail(t,fields,down?'Our inquiry form is briefly unavailable.':/activat/i.test(why)?'This form is waiting for activation.':'Sorry, that did not send.');
+    offerEmail(t,subject,info,down?'Our inquiry form is briefly unavailable.':/activat/i.test(why)?'This form is waiting for activation.':'Sorry, that did not send.');
   }).then(function(){btn.disabled=false});
 });
 </script>
