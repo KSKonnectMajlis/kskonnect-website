@@ -46,10 +46,9 @@
 </main>
 <script>
 // Inquiries are emailed through Web3Forms (the key is public by design). If Web3Forms can't take
-// one, FormSubmit is tried next; its code below stands in for the inbox address.
+// one, FormSubmit is tried next, sending straight to Sarah.
 var WEB3='https://api.web3forms.com/submit',WEB3_KEY='4cfa48c7-e50f-45bf-9ffd-a785924dba8c';
-var INBOX='https://formsubmit.co/ajax/09a74bacd2674d088d8ec587eef45a07';
-var CC='sarah@mavenmarketingandevents.com';
+var INBOX='https://formsubmit.co/ajax/sarah@mavenmarketingandevents.com';
 var TO='scale@kskonnect.ae';
 // Show the chosen dialling code; the UAE flag only fits +971, so hide it for the others.
 function syncCC(){
@@ -85,12 +84,11 @@ document.getElementById('interest').addEventListener('submit',function(e){
   var subject='New Majlis membership inquiry: '+v('name');
   var info={'Full name':v('name'),'Company':v('company'),'Title':v('title'),'WhatsApp':v('country_code')+' '+v('whatsapp'),'Email':v('email'),'Additional comments':v('comments')||'-'};
   var web3=Object.assign({access_key:WEB3_KEY,subject:subject,from_name:'KS Konnect website',replyto:v('email')},info);
-  var formsubmit=Object.assign({_subject:subject,_template:'table',_captcha:'false',_cc:CC,_replyto:v('email')},info);
+  var formsubmit=Object.assign({_subject:subject,_template:'table',_captcha:'false',_replyto:v('email')},info);
   send(WEB3,web3).catch(function(){return send(INBOX,formsubmit)}).then(done).catch(function(err){
     // A TypeError or SyntaxError means the service didn't answer (offline, or its server is down).
     var down=err instanceof TypeError||err instanceof SyntaxError;
-    var why=!down&&err&&err.message?String(err.message):'';
-    offerEmail(t,subject,info,down?'Our inquiry form is briefly unavailable.':/activat/i.test(why)?'This form is waiting for activation.':'Sorry, that did not send.');
+    offerEmail(t,subject,info,down?'Our inquiry form is briefly unavailable.':'Sorry, that did not send.');
   }).then(function(){btn.disabled=false});
 });
 </script>
