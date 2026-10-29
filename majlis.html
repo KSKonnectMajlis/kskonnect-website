@@ -48,6 +48,18 @@
 // Inquiries are emailed through FormSubmit (formsubmit.co); the code below stands in for the inbox address.
 var INBOX='https://formsubmit.co/ajax/09a74bacd2674d088d8ec587eef45a07';
 var CC='sarah@mavenmarketingandevents.com';
+// If the browser can't reach the AJAX endpoint (a network or CORS failure), post the same
+// fields as a normal form instead; FormSubmit then sends the visitor back here with ?sent=1.
+function postPlain(fields){
+  var p=document.createElement('form');p.method='POST';p.action=INBOX.replace('/ajax/','/');p.style.display='none';
+  fields._next=location.origin+location.pathname+'?sent=1';
+  Object.keys(fields).forEach(function(k){var i=document.createElement('input');i.type='hidden';i.name=k;i.value=fields[k];p.appendChild(i)});
+  document.body.appendChild(p);p.submit();
+}
+if(/[?&]sent=1/.test(location.search)){
+  var t0=document.getElementById('toast');t0.classList.add('on');t0.textContent='Thank you. We will be in touch shortly.';
+  history.replaceState(null,'',location.pathname);
+}
 document.getElementById('interest').addEventListener('submit',function(e){
   e.preventDefault();
   var f=this,t=document.getElementById('toast'),btn=f.querySelector('.submit'),req=f.querySelectorAll('[required]');
@@ -57,14 +69,16 @@ document.getElementById('interest').addEventListener('submit',function(e){
   t.classList.add('on');
   if(bad.length){t.textContent='Please complete the required fields.';return}
   btn.disabled=true;t.textContent='Sending your inquiry...';
-  fetch(INBOX,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
+  var fields={
     _subject:'New Majlis membership inquiry: '+v('name'),_template:'table',_captcha:'false',_cc:CC,_replyto:v('email'),_honey:v('_honey'),
     'Full name':v('name'),'Company':v('company'),'Title':v('title'),'WhatsApp':v('country_code')+' '+v('whatsapp'),'Email':v('email'),'Additional comments':v('comments')||'-'
-  })}).then(function(r){return r.json()}).then(function(j){
+  };
+  fetch(INBOX,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(fields)}).then(function(r){return r.json()}).then(function(j){
     if(String(j.success)!=='true')throw j;
     f.reset();document.getElementById('ccv').textContent='+971';
     t.textContent='Thank you. We will be in touch shortly.';
   }).catch(function(err){
+    if(err instanceof TypeError||err instanceof SyntaxError){t.textContent='Sending your inquiry...';postPlain(fields);return}
     var why=err&&err.message?String(err.message):'';
     t.textContent=/activat/i.test(why)?'This form is waiting for activation. Please email us at scale@kskonnect.ae for now.':'Sorry, that did not send. Please email us at scale@kskonnect.ae.'+(why?' ('+why+')':'');
   }).then(function(){btn.disabled=false});
