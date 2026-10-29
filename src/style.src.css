@@ -31,7 +31,7 @@ a{color:inherit;text-decoration:none}
 .h-hero .photo{position:absolute;inset:0;width:853u;left:50%;transform:translateX(-50%);height:553u;background:url(img/home-hero.jpg) 0 0/853u 553u no-repeat;cursor:pointer}
 .h-hero > .wrap{pointer-events:none}
 .h-hero .copy{pointer-events:auto;left:52u;top:230u;font-size:12.6u;line-height:19u;letter-spacing:.8u;font-weight:400}
-/* play button and "Explore our story" box over the founders; both open the corporate trailer */
+/* play button over the founders and "Explore our story" box under the headline; both open the corporate trailer */
 .play{position:absolute;left:493u;top:358u;width:44u;height:44u;border-radius:50%;border:1.5u solid #fff;background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s}
 .play svg{width:13u;height:14u;margin-left:3u}
 .play svg path{fill:#fff;transition:fill .25s}
@@ -39,7 +39,7 @@ a{color:inherit;text-decoration:none}
 @keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
 .play:hover,.h-hero .photo:hover .play{background:#fff;transform:scale(1.06)}
 .play:hover svg path,.h-hero .photo:hover .play svg path{fill:#000}
-.story{position:absolute;left:400u;top:418u;width:230u;height:40u;display:flex;align-items:center;justify-content:center;padding-left:3.2u;border:1.5u solid transparent;border-image:linear-gradient(90deg,#9a7632,#e2bb5e 30%,#f6dc95 50%,#d1aa55 70%,#9a7632) 1;background:linear-gradient(90deg,rgba(8,7,6,.9),rgba(30,26,20,.82) 70%,rgba(8,7,6,.9));box-shadow:0 4u 18u rgba(0,0,0,.45);color:#fff;font-family:var(--sans);font-size:11u;letter-spacing:3.2u;font-weight:500;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
+.story{position:absolute;left:52u;top:352u;width:230u;height:40u;display:flex;align-items:center;justify-content:center;padding-left:3.2u;border:1.5u solid transparent;border-image:linear-gradient(90deg,#9a7632,#e2bb5e 30%,#f6dc95 50%,#d1aa55 70%,#9a7632) 1;background:linear-gradient(90deg,rgba(8,7,6,.9),rgba(30,26,20,.82) 70%,rgba(8,7,6,.9));box-shadow:0 4u 18u rgba(0,0,0,.45);color:#fff;font-family:var(--sans);font-size:11u;letter-spacing:3.2u;font-weight:500;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
 .story:hover{background:var(--gold);color:#000}
 @media (prefers-reduced-motion:reduce){.play::before{animation:none;opacity:0}}
 

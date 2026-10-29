@@ -31,7 +31,7 @@ a{color:inherit;text-decoration:none}
 .h-hero .photo{position:absolute;inset:0;width:calc(853 * var(--u));left:50%;transform:translateX(-50%);height:calc(553 * var(--u));background:url(img/home-hero.jpg) 0 0/calc(853 * var(--u)) calc(553 * var(--u)) no-repeat;cursor:pointer}
 .h-hero > .wrap{pointer-events:none}
 .h-hero .copy{pointer-events:auto;left:calc(52 * var(--u));top:calc(230 * var(--u));font-size:calc(12.6 * var(--u));line-height:calc(19 * var(--u));letter-spacing:calc(.8 * var(--u));font-weight:400}
-/* play button and "Explore our story" box over the founders; both open the corporate trailer */
+/* play button over the founders and "Explore our story" box under the headline; both open the corporate trailer */
 .play{position:absolute;left:calc(493 * var(--u));top:calc(358 * var(--u));width:calc(44 * var(--u));height:calc(44 * var(--u));border-radius:50%;border:calc(1.5 * var(--u)) solid #fff;background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s}
 .play svg{width:calc(13 * var(--u));height:calc(14 * var(--u));margin-left:calc(3 * var(--u))}
 .play svg path{fill:#fff;transition:fill .25s}
@@ -39,7 +39,7 @@ a{color:inherit;text-decoration:none}
 @keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.5);opacity:0}}
 .play:hover,.h-hero .photo:hover .play{background:#fff;transform:scale(1.06)}
 .play:hover svg path,.h-hero .photo:hover .play svg path{fill:#000}
-.story{position:absolute;left:calc(400 * var(--u));top:calc(418 * var(--u));width:calc(230 * var(--u));height:calc(40 * var(--u));display:flex;align-items:center;justify-content:center;padding-left:calc(3.2 * var(--u));border:calc(1.5 * var(--u)) solid transparent;border-image:linear-gradient(90deg,#9a7632,#e2bb5e 30%,#f6dc95 50%,#d1aa55 70%,#9a7632) 1;background:linear-gradient(90deg,rgba(8,7,6,.9),rgba(30,26,20,.82) 70%,rgba(8,7,6,.9));box-shadow:0 calc(4 * var(--u)) calc(18 * var(--u)) rgba(0,0,0,.45);color:#fff;font-family:var(--sans);font-size:calc(11 * var(--u));letter-spacing:calc(3.2 * var(--u));font-weight:500;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
+.story{position:absolute;left:calc(52 * var(--u));top:calc(352 * var(--u));width:calc(230 * var(--u));height:calc(40 * var(--u));display:flex;align-items:center;justify-content:center;padding-left:calc(3.2 * var(--u));border:calc(1.5 * var(--u)) solid transparent;border-image:linear-gradient(90deg,#9a7632,#e2bb5e 30%,#f6dc95 50%,#d1aa55 70%,#9a7632) 1;background:linear-gradient(90deg,rgba(8,7,6,.9),rgba(30,26,20,.82) 70%,rgba(8,7,6,.9));box-shadow:0 calc(4 * var(--u)) calc(18 * var(--u)) rgba(0,0,0,.45);color:#fff;font-family:var(--sans);font-size:calc(11 * var(--u));letter-spacing:calc(3.2 * var(--u));font-weight:500;text-transform:uppercase;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
 .story:hover{background:var(--gold);color:#000}
 @media (prefers-reduced-motion:reduce){.play::before{animation:none;opacity:0}}
 
