@@ -95,6 +95,7 @@ textarea.ctl{height:calc(84 * var(--u));padding-top:calc(12 * var(--u));resize:n
 .submit:hover svg path{stroke:#000}
 .toast{margin-top:calc(12 * var(--u));font-size:calc(12 * var(--u));color:var(--gold-text);opacity:0;transition:opacity .3s}
 .toast.on{opacity:1}
+.toast a{text-decoration:underline}
 
 .aside-col{padding-top:0}
 .aside-copy,.contact-copy{font-family:var(--body);font-weight:400;letter-spacing:calc(.2 * var(--u))}

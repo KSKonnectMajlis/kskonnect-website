@@ -95,6 +95,7 @@ textarea.ctl{height:84u;padding-top:12u;resize:none;line-height:1.45}
 .submit:hover svg path{stroke:#000}
 .toast{margin-top:12u;font-size:12u;color:var(--gold-text);opacity:0;transition:opacity .3s}
 .toast.on{opacity:1}
+.toast a{text-decoration:underline}
 
 .aside-col{padding-top:0}
 .aside-copy,.contact-copy{font-family:var(--body);font-weight:400;letter-spacing:.2u}

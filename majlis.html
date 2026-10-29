@@ -48,17 +48,15 @@
 // Inquiries are emailed through FormSubmit (formsubmit.co); the code below stands in for the inbox address.
 var INBOX='https://formsubmit.co/ajax/09a74bacd2674d088d8ec587eef45a07';
 var CC='sarah@mavenmarketingandevents.com';
-// If the browser can't reach the AJAX endpoint (a network or CORS failure), post the same
-// fields as a normal form instead; FormSubmit then sends the visitor back here with ?sent=1.
-function postPlain(fields){
-  var p=document.createElement('form');p.method='POST';p.action=INBOX.replace('/ajax/','/');p.style.display='none';
-  fields._next=location.origin+location.pathname+'?sent=1';
-  Object.keys(fields).forEach(function(k){var i=document.createElement('input');i.type='hidden';i.name=k;i.value=fields[k];p.appendChild(i)});
-  document.body.appendChild(p);p.submit();
-}
-if(/[?&]sent=1/.test(location.search)){
-  var t0=document.getElementById('toast');t0.classList.add('on');t0.textContent='Thank you. We will be in touch shortly.';
-  history.replaceState(null,'',location.pathname);
+var TO='scale@kskonnect.ae';
+// If FormSubmit can't be reached or refuses the inquiry, keep the visitor on the page and offer
+// the same details as a ready-to-send email, so the inquiry isn't lost.
+function offerEmail(t,fields,lead){
+  var body=Object.keys(fields).filter(function(k){return k.charAt(0)!=='_'}).map(function(k){return k+': '+fields[k]}).join('\n');
+  var a=document.createElement('a');
+  a.href='mailto:'+TO+'?subject='+encodeURIComponent(fields._subject)+'&body='+encodeURIComponent(body);
+  a.textContent='Email your details to '+TO;
+  t.textContent=lead+' ';t.appendChild(a);
 }
 document.getElementById('interest').addEventListener('submit',function(e){
   e.preventDefault();
@@ -78,9 +76,10 @@ document.getElementById('interest').addEventListener('submit',function(e){
     f.reset();document.getElementById('ccv').textContent='+971';
     t.textContent='Thank you. We will be in touch shortly.';
   }).catch(function(err){
-    if(err instanceof TypeError||err instanceof SyntaxError){t.textContent='Sending your inquiry...';postPlain(fields);return}
-    var why=err&&err.message?String(err.message):'';
-    t.textContent=/activat/i.test(why)?'This form is waiting for activation. Please email us at scale@kskonnect.ae for now.':'Sorry, that did not send. Please email us at scale@kskonnect.ae.'+(why?' ('+why+')':'');
+    // A TypeError or SyntaxError means FormSubmit didn't answer (offline, or its server is down).
+    var down=err instanceof TypeError||err instanceof SyntaxError;
+    var why=!down&&err&&err.message?String(err.message):'';
+    offerEmail(t,fields,down?'Our inquiry form is briefly unavailable.':/activat/i.test(why)?'This form is waiting for activation.':'Sorry, that did not send.');
   }).then(function(){btn.disabled=false});
 });
 </script>
