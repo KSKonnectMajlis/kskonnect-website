@@ -9,7 +9,7 @@ Static build of two KS Konnect pages, matched to the supplied mockups.
 
 The founders portrait (`img/home-hero.jpg`) and the Majlis event photo (`img/majlis-event.jpg`) are the client's photos.
 
-The home page has a play button over the founders portrait. Clicking it (or anywhere on the photo) opens the KS Konnect corporate trailer (`video/ks-konnect-trailer.mp4`, 720p) in a lightbox with sound and player controls. `img/trailer-poster.jpg` is its closing frame, shown before playback starts.
+The home page has a play button and an "Explore our story" button over the founders portrait. Clicking either (or anywhere on the photo) opens the KS Konnect corporate trailer (`video/ks-konnect-trailer.mp4`, 720p) in a lightbox with sound and player controls. `img/trailer-poster.jpg` is its closing frame, shown before playback starts.
 
 Inquiries from the Majlis form are emailed through FormSubmit (formsubmit.co), using the inbox's FormSubmit code rather than the address itself. Each inquiry is also copied to sarah@mavenmarketingandevents.com.
 
