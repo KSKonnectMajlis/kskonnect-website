@@ -23,10 +23,11 @@ a{color:inherit;text-decoration:none}
 /* every section title shares one size */
 .title{font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:calc(31 * var(--u));line-height:1.15;letter-spacing:calc(-.5 * var(--u))}
 
-/* small logo, top left */
+/* small logo, top left (the client's wordmark, img/logo.svg; the text styles only show if it fails to load) */
 .site-head{position:absolute;top:0;left:0;right:0;z-index:5}
 .site-head.static{position:relative;height:calc(84 * var(--u))}
-.logo-sm{position:absolute;left:calc(46 * var(--u));top:calc(28 * var(--u));font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:calc(21 * var(--u));line-height:1;letter-spacing:calc(-.5 * var(--u))}
+.logo-sm{position:absolute;left:calc(46 * var(--u));top:calc(30 * var(--u));font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:calc(21 * var(--u));line-height:1;letter-spacing:calc(-.5 * var(--u))}
+.logo-sm img{display:block;height:calc(17 * var(--u));width:auto}
 
 /* ---------- HOME ---------- */
 /* the hero image is calc(553 * var(--u)) tall; its top calc(80 * var(--u)) is empty backdrop, so it's cropped off to sit the founders higher */
@@ -116,7 +117,8 @@ textarea.ctl{height:calc(84 * var(--u));padding-top:calc(12 * var(--u));resize:n
 /* ---------- PHONES: stack the layout ---------- */
 @media (max-width:640px){
   :root,.home{--u:calc(100vw / 400)}
-  .logo-sm{left:calc(16 * var(--u));top:calc(20 * var(--u));font-size:calc(22 * var(--u))}
+  .logo-sm{left:calc(16 * var(--u));top:calc(22 * var(--u));font-size:calc(22 * var(--u))}
+  .logo-sm img{height:calc(17.5 * var(--u))}
   .h-hero{height:auto;padding:calc(80 * var(--u)) calc(16 * var(--u)) calc(300 * var(--u))}
   .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:calc(340 * var(--u));background-size:auto calc(340 * var(--u));background-position:100% 100%}
   .play{left:calc(168 * var(--u));top:calc(211 * var(--u));width:calc(42 * var(--u));height:calc(42 * var(--u))}

@@ -23,10 +23,11 @@ a{color:inherit;text-decoration:none}
 /* every section title shares one size */
 .title{font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:31u;line-height:1.15;letter-spacing:-.5u}
 
-/* small logo, top left */
+/* small logo, top left (the client's wordmark, img/logo.svg; the text styles only show if it fails to load) */
 .site-head{position:absolute;top:0;left:0;right:0;z-index:5}
 .site-head.static{position:relative;height:84u}
-.logo-sm{position:absolute;left:46u;top:28u;font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:21u;line-height:1;letter-spacing:-.5u}
+.logo-sm{position:absolute;left:46u;top:30u;font-family:var(--serif);font-weight:800;font-stretch:83.5%;font-size:21u;line-height:1;letter-spacing:-.5u}
+.logo-sm img{display:block;height:17u;width:auto}
 
 /* ---------- HOME ---------- */
 /* the hero image is 553u tall; its top 80u is empty backdrop, so it's cropped off to sit the founders higher */
@@ -116,7 +117,8 @@ textarea.ctl{height:84u;padding-top:12u;resize:none;line-height:1.45}
 /* ---------- PHONES: stack the layout ---------- */
 @media (max-width:640px){
   :root,.home{--u:calc(100vw / 400)}
-  .logo-sm{left:16u;top:20u;font-size:22u}
+  .logo-sm{left:16u;top:22u;font-size:22u}
+  .logo-sm img{height:17.5u}
   .h-hero{height:auto;padding:80u 16u 300u}
   .h-hero .photo{left:0;transform:none;width:100%;top:auto;bottom:0;height:340u;background-size:auto 340u;background-position:100% 100%}
   .play{left:168u;top:211u;width:42u;height:42u}
